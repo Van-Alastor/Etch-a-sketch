@@ -53,17 +53,51 @@ creation.forEach ((cell) => {
 
 let reset = document.querySelector("#reset");
 
+let black = document.querySelector("#black");
+
+let random = document.querySelector("#random");
+
+let erase = document.querySelector("#erase")
 
 creation.forEach ((cell) => {
 
   reset.addEventListener("click", () => {
 
-    cell.style["background-color"] = "white";
+    cell.style["background-color"] = "";
+
+  })
+  
+  black.addEventListener("click", () => {
+
+    cell.addEventListener("mouseover", () => {
+
+      cell.style["background-color"] = "black";
+  
+    }) 
+
+  })
+
+  random.addEventListener("click", () => {
+
+    cell.addEventListener("mouseover", () => {
+
+      cell.style["background-color"] = randomColor();
+  
+    }) 
+
+  })
+
+  erase.addEventListener("click", () => {
+
+    cell.addEventListener("click", () => {
+
+      cell.style["background-color"] = "";
+  
+    }) 
 
   }) 
 
 })
-
 
 
 
