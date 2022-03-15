@@ -39,9 +39,8 @@ let start = document.querySelector("#start");
 
 start.addEventListener("click", () => {
 
-  if(container.hasChildNodes === true) {
-    container.removeChild();
-
+  while (container.firstChild) {
+    container.removeChild(container.lastChild)
   }
   
   createDivs();
