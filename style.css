@@ -1,5 +1,11 @@
+body {
+    margin: 0;
+}
+
+
 .first {
     background-color: lightblue;
+    text-align: center;
    
 }
 

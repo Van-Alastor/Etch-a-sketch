@@ -1,4 +1,4 @@
-let randomColor = () => {
+const randomColor = () => {
   let letters = "0123456789ABCDEF"
   let assignColor = "#"
 
@@ -9,9 +9,8 @@ let randomColor = () => {
   return assignColor;
 }
 
-let sizeSelector = () => {
+const sizeSelector = () => {
   let grid = parseInt(prompt("Enter the size of the grid:"));
-  
 
   container.style["grid-template-rows"] =  `repeat(${grid}, 1fr)`;
   container.style["grid-template-columns"] = `repeat(${grid}, 1fr)`;
@@ -22,7 +21,7 @@ let sizeSelector = () => {
 
 let container = document.querySelector(".container");
 
-let createDivs = () => {
+const createDivs = () => {
 
   let result = sizeSelector();
   
@@ -36,42 +35,50 @@ let createDivs = () => {
 
 }
 
-createDivs();
+let start = document.querySelector("#start");
 
+start.addEventListener("click", () => {
 
-const creation = document.querySelectorAll("#news");
+  if(container.hasChildNodes === true) {
+    container.removeChild();
 
-creation.forEach ((cell) => {
-
-  cell.addEventListener("mouseover", () => {
-
-    cell.style["background-color"] = randomColor();
-
-  }) 
-
-})
-
-let reset = document.querySelector("#reset");
-
-let black = document.querySelector("#black");
-
-let random = document.querySelector("#random");
-
-let erase = document.querySelector("#erase")
-
-creation.forEach ((cell) => {
-
-  reset.addEventListener("click", () => {
-
-    cell.style["background-color"] = "";
-
-  })
+  }
   
-  black.addEventListener("click", () => {
+  createDivs();
+
+  const creation = document.querySelectorAll("#news");
+
+  creation.forEach ((cell) => {
 
     cell.addEventListener("mouseover", () => {
 
-      cell.style["background-color"] = "black";
+      cell.style["background-color"] = randomColor();
+
+    }) 
+
+  })
+
+  let reset = document.querySelector("#reset");
+
+  let black = document.querySelector("#black");
+
+  let random = document.querySelector("#random");
+
+
+
+  creation.forEach ((cell) => {
+
+    reset.addEventListener("click", () => {
+
+      cell.style["background-color"] = "";
+
+    })
+  
+    black.addEventListener("click", () => {
+
+      cell.addEventListener("mouseover", () => {
+
+        cell.style["background-color"] = "black";
   
     }) 
 
@@ -87,17 +94,17 @@ creation.forEach ((cell) => {
 
   })
 
-  erase.addEventListener("click", () => {
-
-    cell.addEventListener("click", () => {
+  cell.addEventListener("click", () => {
 
       cell.style["background-color"] = "";
   
     }) 
 
-  }) 
+
+  })
 
 })
+
 
 
 
