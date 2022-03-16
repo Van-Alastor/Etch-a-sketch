@@ -13,12 +13,11 @@ const sizeSelector = () => {
   
   let grid = Math.abs(parseInt(prompt("Enter a number between 1 to 50. Negative numbers will become positive:", "1")));
 
-  if (isNaN(grid) == true) {
+  if (isNaN(grid)) {
     alert("Enter a number pls, don't be a monkey");
-  } else if (grid > 50) {
-    return null;
-  } else if (grid == 0) {
+  } else if (grid > 50 || grid == 0) {
     alert("Please follow the instructions")
+    return null;
   }
 
   container.style["grid-template-rows"] =  `repeat(${grid}, 1fr)`;
