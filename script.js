@@ -10,7 +10,16 @@ const randomColor = () => {
 }
 
 const sizeSelector = () => {
-  let grid = parseInt(prompt("Enter the size of the grid:"));
+  
+  let grid = Math.abs(parseInt(prompt("Enter a number between 1 to 50. Negative numbers will become positive:", "1")));
+
+  if (isNaN(grid) == true) {
+    alert("Enter a number pls, don't be a monkey");
+  } else if (grid > 50) {
+    return null;
+  } else if (grid == 0) {
+    alert("Please follow the instructions")
+  }
 
   container.style["grid-template-rows"] =  `repeat(${grid}, 1fr)`;
   container.style["grid-template-columns"] = `repeat(${grid}, 1fr)`;
@@ -64,7 +73,6 @@ start.addEventListener("click", () => {
   let random = document.querySelector("#random");
 
 
-
   creation.forEach ((cell) => {
 
     reset.addEventListener("click", () => {
@@ -98,7 +106,6 @@ start.addEventListener("click", () => {
       cell.style["background-color"] = "";
   
     }) 
-
 
   })
 
